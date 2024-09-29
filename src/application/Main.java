@@ -2,6 +2,7 @@ package application;
 
 import entities.BubbleSort;
 import entities.MergeSort;
+import entities.QuickSort;
 
 import java.util.*;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
+        // Criando os dados
         final int hectares = 20000;
         List<Integer> data = new ArrayList<Integer>();
         for (int i = 0; i < hectares; i++) {
@@ -17,8 +19,9 @@ public class Main {
 
         BubbleSort bubbleSort = new BubbleSort();
         MergeSort mergeSort = new MergeSort();
+        QuickSort quickSort = new QuickSort();
 
-        //Embaralhando
+        // Embaralhando
         Collections.shuffle(data);
 
         // BubbleSort
@@ -27,7 +30,7 @@ public class Main {
         long timeEndBubbleSort = System.currentTimeMillis();
         System.out.println("Tempo total: " + (timeEndBubbleSort - timeStartBubbleSort));
 
-        //Embaralhando
+        // Embaralhando
         Collections.shuffle(data);
 
         // MergeSort
@@ -36,5 +39,14 @@ public class Main {
         long timeEndMergeSort = System.currentTimeMillis();
         System.out.println("Tempo total: " + (timeEndMergeSort - timeStartMergeSort));
 
+
+        // Embaralhando
+        Collections.shuffle(data);
+
+        // QuickSort
+        long timeStartQuickSort = System.currentTimeMillis();
+        quickSort.quickSort(data, 0, data.size()-1);
+        long timeEndQuickSort = System.currentTimeMillis();
+        System.out.println("Tempo total: " + (timeEndQuickSort - timeStartQuickSort));
     }
 }
